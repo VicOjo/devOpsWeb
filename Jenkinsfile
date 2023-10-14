@@ -25,8 +25,8 @@ stages{
             parallel{
                 stage ("Deploy to Staging"){
                     steps {
-                        sh 'scp Dockerfile ubuntu@54.236.7.198'
-                        sh 'ssh ubuntu@54.236.7.198 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
+                        sh 'scp Dockerfile ec2-user@54.236.7.198'
+                        sh 'ssh ec2-user@54.236.7.198 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
                     }
                 }
             }
