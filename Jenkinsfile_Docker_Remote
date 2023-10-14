@@ -1,14 +1,14 @@
 pipeline{
 	agent any
     tools {
-        maven 'localMaven'
+        maven 'maven'
     }
 	stages{
 		stage('Build'){
 			steps{
 				sh 'mvn clean package'
-				sh 'scp Dockerfile centos@3.17.61.170'
-				sh 'ssh centos@3.17.61.170 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
+				sh 'scp Dockerfile ubuntu@54.236.7.198'
+				sh 'ssh ubuntu@54.236.7.198 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
 			}
 		}
 	}
