@@ -25,7 +25,8 @@ stages{
             parallel{
                 stage ("Deploy to Staging"){
                     steps {
-                        sh "scp -v -o StrictHostKeyChecking=no **/*.war root@${params.staging_server}:/opt/tomcat/webapps/"
+                        sh 'scp Dockerfile ubuntu@54.236.7.198'
+                        sh 'ssh ubuntu@54.236.7.198 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
                     }
                 }
             }
